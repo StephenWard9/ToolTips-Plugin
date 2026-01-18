@@ -322,18 +322,13 @@ final class FN_Tooltips_MU {
   display:inline-flex !important;
   align-items:center !important;
   justify-content:center !important;
-  margin-left:4px !important;       /* mobile default: smaller gap */
+  margin-left:0px !important;
   padding:4px !important;           /* tap target */
   border:0 !important;
   background:transparent !important;
   cursor:pointer !important;
   line-height:1 !important;
   vertical-align:middle !important;
-}
-@media (min-width: 768px) {
-  .fn-tooltip-trigger{
-    margin-left:10px !important;    /* desktop: more space */
-  }
 }
 .fn-tooltip-trigger:focus{
   outline:2px solid currentColor;
