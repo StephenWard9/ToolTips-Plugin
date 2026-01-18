@@ -337,16 +337,16 @@ final class FN_Tooltips_MU {
 
 /* Icon itself */
 .fn-tooltip-icon{
-  display:inline-flex;
-  width:20px;
-  height:20px;
-  border:1.5px solid currentColor;
-  border-radius:999px;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:700;
-  opacity:.8;
+  display:inline-flex !important;
+  width:24px !important;
+  height:24px !important;
+  border:2px solid currentColor !important;
+  border-radius:999px !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  opacity:.85 !important;
 }
 
 /* Tooltip popover */
