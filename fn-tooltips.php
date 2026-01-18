@@ -290,19 +290,7 @@ final class FN_Tooltips_MU {
         ], (array)$atts, 'fn_tooltip');
 
         $key = self::normalise_key((string)$atts['key']);
-
-        // Debug: If key is empty after normalization, show what was passed
-        if ($key === '') {
-            $debug = '<!-- fn_tooltip DEBUG: key is empty after normalization. Raw key: ' . esc_html($atts['key']) . ' -->';
-            return current_user_can('manage_options') ? $debug : '';
-        }
-
-        // Debug: Check if tooltip exists in registry
-        $reg = self::get_registry();
-        if (!isset($reg[$key])) {
-            $debug = '<!-- fn_tooltip DEBUG: key "' . esc_html($key) . '" not found in registry. Available keys: ' . esc_html(implode(', ', array_keys($reg))) . ' -->';
-            return current_user_can('manage_options') ? $debug : '';
-        }
+        if ($key === '') return '';
 
         $extra_class = sanitize_html_class((string)$atts['class']);
         $aria_label  = trim((string)$atts['label']);
@@ -315,11 +303,11 @@ final class FN_Tooltips_MU {
     }
 
     private static function render_icon_button(string $key, string $extra_class, string $aria_label): string {
-        // Button is tiny visually, but has a bigger hit area via padding.
+        // Using span instead of button to avoid WordPress content filtering
         return sprintf(
-            '<button type="button" class="fn-tooltip-trigger %s" data-fn-tooltip-key="%s" aria-label="%s" aria-expanded="false">' .
+            '<span class="fn-tooltip-trigger %s" data-fn-tooltip-key="%s" role="button" tabindex="0" aria-label="%s" aria-expanded="false">' .
             '<span class="fn-tooltip-icon" aria-hidden="true">i</span>' .
-            '</button>',
+            '</span>',
             esc_attr($extra_class),
             esc_attr($key),
             esc_attr($aria_label)
