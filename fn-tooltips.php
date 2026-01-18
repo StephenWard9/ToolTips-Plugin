@@ -316,6 +316,7 @@ final class FN_Tooltips_MU {
 
     private static function frontend_css(): string {
         return <<<CSS
+/* UPDATED VERSION v1.1 - If you see this in browser inspector, file is loaded */
 /* Trigger button (tiny icon, larger tap target) */
 .fn-tooltip-trigger{
   display:inline-flex;
