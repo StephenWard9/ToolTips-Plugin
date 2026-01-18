@@ -322,13 +322,18 @@ final class FN_Tooltips_MU {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  margin-left:8px;
+  margin-left:4px;       /* mobile default: smaller gap */
   padding:4px;           /* tap target */
   border:0;
   background:transparent;
   cursor:pointer;
   line-height:1;
   vertical-align:middle;
+}
+@media (min-width: 768px) {
+  .fn-tooltip-trigger{
+    margin-left:10px;    /* desktop: more space */
+  }
 }
 .fn-tooltip-trigger:focus{
   outline:2px solid currentColor;
@@ -597,9 +602,16 @@ CSS;
   // Mobile / tap behaviour (also works on desktop for click)
   document.addEventListener('click', function(e){
     const t = closestTrigger(e.target);
+
+    // Click inside popover - close it (easier mobile UX)
+    if (popover && popover.style.display === 'block' && popover.contains(e.target)) {
+      closeTooltip();
+      return;
+    }
+
     if (!t) {
       // clicked outside trigger/popover
-      if (popover && popover.style.display === 'block' && !(popover.contains(e.target))) closeTooltip();
+      if (popover && popover.style.display === 'block') closeTooltip();
       return;
     }
 
