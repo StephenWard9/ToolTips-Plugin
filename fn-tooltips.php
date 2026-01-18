@@ -290,7 +290,19 @@ final class FN_Tooltips_MU {
         ], (array)$atts, 'fn_tooltip');
 
         $key = self::normalise_key((string)$atts['key']);
-        if ($key === '') return '';
+
+        // Debug: If key is empty after normalization, show what was passed
+        if ($key === '') {
+            $debug = '<!-- fn_tooltip DEBUG: key is empty after normalization. Raw key: ' . esc_html($atts['key']) . ' -->';
+            return current_user_can('manage_options') ? $debug : '';
+        }
+
+        // Debug: Check if tooltip exists in registry
+        $reg = self::get_registry();
+        if (!isset($reg[$key])) {
+            $debug = '<!-- fn_tooltip DEBUG: key "' . esc_html($key) . '" not found in registry. Available keys: ' . esc_html(implode(', ', array_keys($reg))) . ' -->';
+            return current_user_can('manage_options') ? $debug : '';
+        }
 
         $extra_class = sanitize_html_class((string)$atts['class']);
         $aria_label  = trim((string)$atts['label']);
