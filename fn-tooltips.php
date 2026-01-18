@@ -319,20 +319,20 @@ final class FN_Tooltips_MU {
 /* UPDATED VERSION v1.1 - If you see this in browser inspector, file is loaded */
 /* Trigger button (tiny icon, larger tap target) */
 .fn-tooltip-trigger{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  margin-left:4px;       /* mobile default: smaller gap */
-  padding:4px;           /* tap target */
-  border:0;
-  background:transparent;
-  cursor:pointer;
-  line-height:1;
-  vertical-align:middle;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin-left:4px !important;       /* mobile default: smaller gap */
+  padding:4px !important;           /* tap target */
+  border:0 !important;
+  background:transparent !important;
+  cursor:pointer !important;
+  line-height:1 !important;
+  vertical-align:middle !important;
 }
 @media (min-width: 768px) {
   .fn-tooltip-trigger{
-    margin-left:10px;    /* desktop: more space */
+    margin-left:10px !important;    /* desktop: more space */
   }
 }
 .fn-tooltip-trigger:focus{
