@@ -322,7 +322,7 @@ final class FN_Tooltips_MU {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  margin-left:6px;
+  margin-left:8px;
   padding:4px;           /* tap target */
   border:0;
   background:transparent;
@@ -378,8 +378,8 @@ final class FN_Tooltips_MU {
 }
 #fn-tooltip-popover .fn-tooltip-close{
   position:absolute;
-  top:-8px;
-  right:-8px;
+  top:-12px;
+  right:-12px;
   width:24px;
   height:24px;
   padding:0;
