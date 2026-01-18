@@ -373,32 +373,11 @@ final class FN_Tooltips_MU {
 }
 #fn-tooltip-popover .fn-tooltip-header{
   display:block;
-  position:relative;
   margin-bottom:3px;
-  padding-right:28px;
 }
 #fn-tooltip-popover .fn-tooltip-title{
   font-weight:700;
   margin-bottom:0;
-}
-#fn-tooltip-popover .fn-tooltip-close{
-  position:absolute;
-  top:-12px;
-  right:-12px;
-  width:24px;
-  height:24px;
-  padding:0;
-  border:0;
-  background:transparent;
-  cursor:pointer;
-  font-size:22px;
-  line-height:1;
-  color:rgba(0,0,0,.5);
-  border-radius:4px;
-}
-#fn-tooltip-popover .fn-tooltip-close:hover{
-  background:rgba(0,0,0,.05);
-  color:rgba(0,0,0,.8);
 }
 #fn-tooltip-popover .fn-tooltip-content{
   margin:0;
@@ -480,15 +459,12 @@ CSS;
     const p = ensurePopover();
     const html = [];
 
-    // Add header with optional title and close button
-    html.push('<div class="fn-tooltip-header">');
+    // Add header with optional title
     if (data.title) {
+      html.push('<div class="fn-tooltip-header">');
       html.push('<div class="fn-tooltip-title">' + escapeHtml(data.title) + '</div>');
-    } else {
-      html.push('<div class="fn-tooltip-title"></div>');
+      html.push('</div>');
     }
-    html.push('<button type="button" class="fn-tooltip-close" aria-label="Close">×</button>');
-    html.push('</div>');
 
     // content can contain limited HTML (from wp_kses_post), so do NOT escape it.
     html.push('<div class="fn-tooltip-content">' + data.content + '</div>');
@@ -532,15 +508,6 @@ CSS;
     if (!target) return null;
     return target.closest('[data-fn-tooltip-key]');
   }
-
-  // Close button click handler
-  document.addEventListener('click', function(e){
-    if (e.target && e.target.classList && e.target.classList.contains('fn-tooltip-close')) {
-      e.preventDefault();
-      e.stopPropagation();
-      closeTooltip();
-    }
-  });
 
   // Desktop hover behaviour
   if (hasHover) {
