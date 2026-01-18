@@ -337,15 +337,15 @@ final class FN_Tooltips_MU {
 /* Icon itself */
 .fn-tooltip-icon{
   display:inline-flex;
-  width:18px;
-  height:18px;
-  border:1px solid currentColor;
+  width:20px;
+  height:20px;
+  border:1.5px solid currentColor;
   border-radius:999px;
   align-items:center;
   justify-content:center;
-  font-size:12px;
+  font-size:13px;
   font-weight:700;
-  opacity:.75;
+  opacity:.8;
 }
 
 /* Tooltip popover */
@@ -376,15 +376,15 @@ final class FN_Tooltips_MU {
 }
 #fn-tooltip-popover .fn-tooltip-close{
   position:absolute;
-  top:-6px;
-  right:-4px;
+  top:-8px;
+  right:-8px;
   width:24px;
   height:24px;
   padding:0;
   border:0;
   background:transparent;
   cursor:pointer;
-  font-size:20px;
+  font-size:22px;
   line-height:1;
   color:rgba(0,0,0,.5);
   border-radius:4px;
