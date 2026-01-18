@@ -337,13 +337,13 @@ final class FN_Tooltips_MU {
 /* Icon itself */
 .fn-tooltip-icon{
   display:inline-flex;
-  width:16px;
-  height:16px;
+  width:18px;
+  height:18px;
   border:1px solid currentColor;
   border-radius:999px;
   align-items:center;
   justify-content:center;
-  font-size:11px;
+  font-size:12px;
   font-weight:700;
   opacity:.75;
 }
@@ -376,15 +376,15 @@ final class FN_Tooltips_MU {
 }
 #fn-tooltip-popover .fn-tooltip-close{
   position:absolute;
-  top:-2px;
-  right:0;
-  width:20px;
-  height:20px;
+  top:-6px;
+  right:-4px;
+  width:24px;
+  height:24px;
   padding:0;
   border:0;
   background:transparent;
   cursor:pointer;
-  font-size:18px;
+  font-size:20px;
   line-height:1;
   color:rgba(0,0,0,.5);
   border-radius:4px;
@@ -480,7 +480,7 @@ CSS;
     } else {
       html.push('<div class="fn-tooltip-title"></div>');
     }
-    html.push('<button type="button" class="fn-tooltip-close" aria-label="Close" onclick="this.closest(\'#fn-tooltip-popover\').dispatchEvent(new Event(\'close-tooltip\'))">×</button>');
+    html.push('<button type="button" class="fn-tooltip-close" aria-label="Close">×</button>');
     html.push('</div>');
 
     // content can contain limited HTML (from wp_kses_post), so do NOT escape it.
@@ -526,9 +526,11 @@ CSS;
     return target.closest('[data-fn-tooltip-key]');
   }
 
-  // Close button event listener
-  document.addEventListener('close-tooltip', function(e){
-    if (e.target && e.target.id === 'fn-tooltip-popover') {
+  // Close button click handler
+  document.addEventListener('click', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('fn-tooltip-close')) {
+      e.preventDefault();
+      e.stopPropagation();
       closeTooltip();
     }
   });
