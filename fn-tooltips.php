@@ -322,7 +322,7 @@ final class FN_Tooltips_MU {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  margin-left:2px;
+  margin-left:6px;
   padding:4px;           /* tap target */
   border:0;
   background:transparent;
@@ -338,13 +338,13 @@ final class FN_Tooltips_MU {
 /* Icon itself */
 .fn-tooltip-icon{
   display:inline-block !important;
-  width:24px !important;
-  height:24px !important;
-  border:2px solid currentColor !important;
+  width:20px !important;
+  height:20px !important;
+  border:1.5px solid currentColor !important;
   border-radius:50% !important;
   text-align:center !important;
-  line-height:20px !important;
-  font-size:14px !important;
+  line-height:18px !important;
+  font-size:13px !important;
   font-weight:700 !important;
   opacity:.85 !important;
   vertical-align:middle !important;
