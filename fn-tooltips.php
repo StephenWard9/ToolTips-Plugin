@@ -321,8 +321,8 @@ final class FN_Tooltips_MU {
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  margin-left:6px;
-  padding:10px;           /* tap target */
+  margin-left:2px;
+  padding:4px;           /* tap target */
   border:0;
   background:transparent;
   cursor:pointer;
@@ -356,6 +356,7 @@ final class FN_Tooltips_MU {
   max-height:min(400px, 80vh);
   overflow-y:auto;
   padding:12px 14px;
+  padding-top:10px;
   border:1px solid rgba(0,0,0,.15);
   border-radius:10px;
   background:#fff;
@@ -364,25 +365,26 @@ final class FN_Tooltips_MU {
   line-height:1.35;
 }
 #fn-tooltip-popover .fn-tooltip-header{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:6px;
+  display:block;
+  position:relative;
+  margin-bottom:3px;
+  padding-right:28px;
 }
 #fn-tooltip-popover .fn-tooltip-title{
   font-weight:700;
-  flex:1;
+  margin-bottom:0;
 }
 #fn-tooltip-popover .fn-tooltip-close{
-  flex-shrink:0;
-  width:24px;
-  height:24px;
+  position:absolute;
+  top:-2px;
+  right:0;
+  width:20px;
+  height:20px;
   padding:0;
   border:0;
   background:transparent;
   cursor:pointer;
-  font-size:20px;
+  font-size:18px;
   line-height:1;
   color:rgba(0,0,0,.5);
   border-radius:4px;
