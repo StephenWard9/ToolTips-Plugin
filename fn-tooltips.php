@@ -20,13 +20,6 @@ final class FN_Tooltips_MU {
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_assets']);
 
         add_shortcode('fn_tooltip', [__CLASS__, 'shortcode_tooltip']);
-
-        // Enable shortcodes in WooCommerce product short descriptions
-        add_filter('woocommerce_short_description', 'do_shortcode');
-
-        // Also enable in product excerpts (used in various places)
-        add_filter('woocommerce_product_get_short_description', 'do_shortcode');
-        add_filter('the_excerpt', 'do_shortcode');
     }
 
     /* ---------------------------
